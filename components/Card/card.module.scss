@@ -1,0 +1,53 @@
+.cardContainer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	transition: all 0.5s ease-in-out;
+	align-items: center;
+	gap: 2rem;
+	background-color: gray;
+	border-radius: 2rem;
+	max-width: 320px;
+	padding: 2rem 2.5rem;
+}
+
+.likeContainer {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.iconWrapper {
+	transition: all 0.5s ease-in-out;
+	padding: 2rem;
+	background-color: rgb(85, 85, 85);
+	border-radius: 3rem;
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	opacity: 60%;
+
+	&:hover {
+		opacity: 100%;
+	}
+}
+
+.cardImage {
+	border-radius: 3rem;
+}
+
+.cardInfo {
+	display: flex;
+	flex-direction: column;
+	padding: 0 4rem;
+	gap: 1rem;
+
+	h1 {
+		font-size: 1rem;
+		font-weight: bold;
+	}
+
+	p {
+		font-weight: 300;
+	}
+}
