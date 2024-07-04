@@ -3,10 +3,12 @@
 import React from 'react';
 import styles from './page.module.scss';
 
+import { ICard } from './page.interface';
+
 import Card from '@/components/Card';
 
 export default function Home() {
-	const [dogs, setDogs] = React.useState([]);
+	const [dogs, setDogs] = React.useState<ICard[]>([]);
 
 	React.useEffect(() => {
 		async function fethData() {

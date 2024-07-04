@@ -1,17 +1,15 @@
 .mainContainer {
 	width: 100%;
-	max-width: 1024px;
+	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 15px; // чтобы добавить немного отступов по краям
+	padding: 1rem;
 
 	@media (min-width: 1024px) {
-		padding: 0; // убрать отступы при ширине экрана 1024px и больше
+		padding: 2rem;
 	}
 }
 
 .cardContainer {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 15px; // Расстояние между карточками
-	justify-content: center; // Центрирует карточки, если их меньше, чем может поместиться в строке
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
