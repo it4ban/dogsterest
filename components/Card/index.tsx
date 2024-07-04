@@ -3,18 +3,18 @@ import styles from './card.module.scss';
 
 import Image from 'next/image';
 import { FcLike } from 'react-icons/fc';
-import { ICard } from '@/app/page.interface';
+import { IDogCard } from '@/app/page.interface';
 
-const Card: React.FC<{ item: ICard }> = ({ item }) => {
+const Card: React.FC<{ item: IDogCard }> = ({ item }) => {
 	return (
 		<div className={styles.cardItem}>
 			<Image
 				className={styles.cardImage}
 				src={item.image}
 				alt={`dog ${item.id}`}
+				style={{ objectFit: 'cover' }}
 				width={300}
 				height={300}
-				layout="responsive"
 			/>
 			<div className={styles.cardInfo}>
 				<h1>{item.name}</h1>

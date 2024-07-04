@@ -1,35 +1,21 @@
-'use client';
-
 import React from 'react';
 import styles from './page.module.scss';
 
-import { ICard } from './page.interface';
+import { IDogCard } from './page.interface';
+
+import { useFetchData } from '@/hooks/useFetchData';
 
 import Header from '@/components/Header';
-import Card from '@/components/Card';
+import CardList from '@/components/CartList';
 
-export default function Home() {
-	const [dogs, setDogs] = React.useState<ICard[]>([]);
-
-	React.useEffect(() => {
-		async function fethData() {
-			await fetch('http://localhost:3000/doggos')
-				.then((response) => response.json())
-				.then((data) => setDogs(data))
-				.catch((err) => console.error('Error:', err));
-		}
-
-		fethData();
-	}, []);
+export default async function Home() {
+	const dogs: IDogCard[] = await useFetchData();
 
 	return (
 		<>
-			<Header />
 			<main className={styles.mainContainer}>
 				<div className={styles.cardContainer}>
-					{dogs.map((item) => (
-						<Card key={item.id} item={item} />
-					))}
+					<CardList dogs={dogs} />
 				</div>
 			</main>
 		</>

@@ -1,4 +1,4 @@
-export interface ICard {
+export interface IDogCard {
 	id: number;
 	likeCount: number;
 	image: string;
