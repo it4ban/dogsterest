@@ -1,14 +1,27 @@
-import { IDogCard } from '@/app/page.interface';
 import React from 'react';
 
-import Card from '@/components/Card';
+import dynamic from 'next/dynamic';
 
-const CartList: React.FC<{ dogs: IDogCard[] }> = ({ dogs }) => {
+import { IDogCard } from '@/app/page.interface';
+
+const SkeletonCard = dynamic(() => import('./Card/SkeletonCard'), {
+	ssr: false,
+});
+
+const Card = dynamic(() => import('./Card'), {
+	loading: () => <SkeletonCard />,
+	ssr: false,
+});
+
+const CartList: React.FC<{ dogs: IDogCard[]; loading: boolean }> = ({
+	dogs,
+	loading,
+}) => {
 	return (
 		<>
-			{dogs.map((item: IDogCard) => (
-				<Card key={item.id} item={item} />
-			))}
+			{loading
+				? [...Array(10)].map((_, index) => <SkeletonCard key={index} />)
+				: dogs.map((item: IDogCard) => <Card key={item.id} item={item} />)}
 		</>
 	);
 };

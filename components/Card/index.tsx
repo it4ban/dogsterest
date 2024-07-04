@@ -11,6 +11,7 @@ const Card: React.FC<{ item: IDogCard }> = ({ item }) => {
 			<Image
 				className={styles.cardImage}
 				src={item.image}
+				priority
 				alt={`dog ${item.id}`}
 				style={{ objectFit: 'cover' }}
 				width={300}

@@ -785,6 +785,7 @@ __metadata:
     eslint-config-next: "npm:14.2.4"
     next: "npm:14.2.4"
     react: "npm:^18"
+    react-content-loader: "npm:^7.0.2"
     react-dom: "npm:^18"
     react-icons: "npm:^5.2.1"
     sass: "npm:^1.77.6"
@@ -2997,6 +2998,15 @@ __metadata:
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
   checksum: 10c0/900a93d3cdae3acd7d16f642c29a642aea32c2026446151f0778c62ac089d4b8e6c986811076e1ae180a694cedf077d453a11b58ff0a865629a4f82ab558e102
+  languageName: node
+  linkType: hard
+
+"react-content-loader@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "react-content-loader@npm:7.0.2"
+  peerDependencies:
+    react: ">=16.0.0"
+  checksum: 10c0/77e5976dedd91c793d9c4dd529ce81b89afedfc09c373547aac370e786fce0ed7220887b672ec4252a88e53ef1db1130b668b78f833276a53d0c6e1b040bcd1c
   languageName: node
   linkType: hard
 

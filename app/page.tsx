@@ -1,21 +1,23 @@
-import React from 'react';
-import styles from './page.module.scss';
+'use client';
 
-import { IDogCard } from './page.interface';
+import styles from './page.module.scss';
 
 import { useFetchData } from '@/hooks/useFetchData';
 
-import Header from '@/components/Header';
-import CardList from '@/components/CartList';
+import CartList from '@/components/CartList';
 
-export default async function Home() {
-	const dogs: IDogCard[] = await useFetchData();
+export default function Home() {
+	const { data: dogs, loading, error } = useFetchData();
 
 	return (
 		<>
 			<main className={styles.mainContainer}>
 				<div className={styles.cardContainer}>
-					<CardList dogs={dogs} />
+					{error ? (
+						<div>Error: {error.message}</div>
+					) : (
+						<CartList dogs={dogs} loading={loading} />
+					)}
 				</div>
 			</main>
 		</>
