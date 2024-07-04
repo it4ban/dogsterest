@@ -4,7 +4,8 @@ import styles from './page.module.scss';
 
 import { useFetchData } from '@/hooks/useFetchData';
 
-import CartList from '@/components/CartList';
+import Header from '@/components/Header';
+import CardList from '@/components/CartList';
 
 export default function Home() {
 	const { data: dogs, loading, error } = useFetchData();
