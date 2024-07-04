@@ -5,6 +5,7 @@ import styles from './page.module.scss';
 
 import { ICard } from './page.interface';
 
+import Header from '@/components/Header';
 import Card from '@/components/Card';
 
 export default function Home() {
@@ -22,12 +23,15 @@ export default function Home() {
 	}, []);
 
 	return (
-		<main className={styles.mainContainer}>
-			<div className={styles.cardContainer}>
-				{dogs.map((item) => (
-					<Card key={item.id} item={item} />
-				))}
-			</div>
-		</main>
+		<>
+			<Header />
+			<main className={styles.mainContainer}>
+				<div className={styles.cardContainer}>
+					{dogs.map((item) => (
+						<Card key={item.id} item={item} />
+					))}
+				</div>
+			</main>
+		</>
 	);
 }
