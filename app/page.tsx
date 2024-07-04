@@ -5,7 +5,6 @@ import { IDogCard } from './page.interface';
 
 import { useFetchData } from '@/hooks/useFetchData';
 
-import Header from '@/components/Header';
 import CardList from '@/components/CartList';
 
 export default async function Home() {
