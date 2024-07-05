@@ -3,7 +3,7 @@ import styles from './card.module.scss';
 
 import Image from 'next/image';
 import { FcLike } from 'react-icons/fc';
-import { IDogCard } from '@/app/page.interface';
+import { IDogCard } from './card.interface';
 
 const Card: React.FC<{ item: IDogCard }> = ({ item }) => {
 	return (

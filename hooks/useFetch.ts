@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
-import { IDogCard } from '@/app/page.interface';
+import { IDogCard } from '@/components/Card/card.interface';
 
-export const useFetchData = (url: string = 'http://localhost:3001/doggos') => {
+export const useFetch = (url: string = 'http://localhost:3001/doggos') => {
 	const [data, setData] = useState<IDogCard[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<Error | null>(null);

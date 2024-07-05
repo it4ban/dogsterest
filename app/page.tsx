@@ -2,23 +2,19 @@
 
 import styles from './page.module.scss';
 
-import { useFetchData } from '@/hooks/useFetchData';
+import { useFetch } from '@/hooks/useFetch';
 
-import Header from '@/components/Header';
 import CardList from '@/components/CartList';
 
 export default function Home() {
-	const { data: dogs, loading, error } = useFetchData();
+	const { data: dogs, loading, error } = useFetch();
 
 	return (
 		<>
 			<main className={styles.mainContainer}>
+				{error && <div>Error: {error.message}</div>}
 				<div className={styles.cardContainer}>
-					{error ? (
-						<div>Error: {error.message}</div>
-					) : (
-						<CartList dogs={dogs} loading={loading} />
-					)}
+					<CardList dogs={dogs} loading={loading} />
 				</div>
 			</main>
 		</>

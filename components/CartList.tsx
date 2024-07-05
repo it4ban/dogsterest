@@ -2,7 +2,7 @@ import React from 'react';
 
 import dynamic from 'next/dynamic';
 
-import { IDogCard } from '@/app/page.interface';
+import { IDogCard } from './Card/card.interface';
 
 const SkeletonCard = dynamic(() => import('./Card/SkeletonCard'), {
 	ssr: false,
