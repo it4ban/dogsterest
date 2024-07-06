@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { IDogCard } from '@/components/Card/card.interface';
+import axios, { AxiosError } from 'axios';
 
 export const useFetch = (url: string = 'http://localhost:3001/doggos') => {
 	const [data, setData] = useState<IDogCard[]>([]);
@@ -10,21 +11,23 @@ export const useFetch = (url: string = 'http://localhost:3001/doggos') => {
 	useEffect(() => {
 		(async () => {
 			try {
-				const response = await fetch(url);
-
-				if (!response.ok) {
-					throw new Error(`HTTP error! status: ${response.status}`);
-				}
-
-				const data = await response.json();
-				setData(data);
+				const response = await axios.get(url);
+				setData(response.data);
 			} catch (err) {
-				setError(err as Error);
+				const axiosError = err as AxiosError;
+
+				if (!axiosError.response) {
+					setError(new Error('Network error'));
+				} else {
+					setError(
+						new Error(`HTTP error! message: ${axiosError.response?.status}`),
+					);
+				}
 			} finally {
 				setLoading(false);
 			}
 		})();
-	}, [url]);
+	}, []);
 
 	return { data, loading, error };
 };

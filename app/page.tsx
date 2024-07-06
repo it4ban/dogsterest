@@ -1,7 +1,5 @@
 'use client';
 
-import styles from './page.module.scss';
-
 import { useFetch } from '@/hooks/useFetch';
 
 import CardList from '@/components/CartList';
@@ -11,12 +9,8 @@ export default function Home() {
 
 	return (
 		<>
-			<main className={styles.mainContainer}>
-				{error && <div>Error: {error.message}</div>}
-				<div className={styles.cardContainer}>
-					<CardList dogs={dogs} loading={loading} />
-				</div>
-			</main>
+			{error && <div>Error: {error.message}</div>}
+			<CardList dogs={dogs} loading={loading} />
 		</>
 	);
 }
